@@ -5,11 +5,11 @@ const { userRouter } = require('./routes')
 const app = express()
 require('dotenv').config()
 const port = process.env.PORT
-cors({
-    origin: "http://localhost:4200",
-    optionsSuccessStatus:200
-})
 tetsConnection()
+app.use(cors({
+    origin: "*",
+    optionsSuccessStatus:200
+}))
 app.use(express.json())
 app.use(userRouter)
 app.listen(port)
